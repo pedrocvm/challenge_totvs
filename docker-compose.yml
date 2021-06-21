@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  mongodb:
+    image: mongo
+    container_name: MongoDB
+    restart: unless-stopped
+    ports:
+      - ${MONGO_PORT}:27017
+
+  api:
+    build: ./app
+    container_name: API
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb/challenge_totvs
