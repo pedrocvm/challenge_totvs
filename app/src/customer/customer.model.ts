@@ -32,10 +32,7 @@ export class CustomerModel extends Document {
   @Prop()
   amount: number;
 
-  @Prop({
-    type: Date,
-    default: Date.now
-  })
+  @Prop()
   since: Date;
 }
 

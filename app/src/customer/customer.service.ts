@@ -52,8 +52,8 @@ export class CustomerService {
       record.name = data.name;
       record.cpf = data.cpf;
       record.isDefaulting = data.isDefaulting;
-      record.amount = data.amount;
-      record.since = data.since;
+      record.amount = data.isDefaulting ? data.amount : null;
+      record.since = data.isDefaulting ? data.since : null;
 
       const newCustomer = await this.customerModel.create(record);
 
@@ -95,6 +95,19 @@ export class CustomerService {
 
       return {
         message: `Customer ${id} successfully deleted`
+      };
+    } catch (error) {
+      throw new HttpException(error.message, 500);
+    }
+  }
+
+  public async clear(): Promise<{message: string}>{
+    try {
+
+      await this.customerModel.remove();
+
+      return {
+        message: `All Customers successfully deleted`
       };
     } catch (error) {
       throw new HttpException(error.message, 500);

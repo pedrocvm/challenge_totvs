@@ -17,3 +17,9 @@ services:
       - mongodb
     environment:
       - MONGO_URI=mongodb://mongodb/challenge_totvs
+
+  client:
+    build: ./client
+    container_name: CLIENT
+    ports:
+      - ${CLIENT_PORT}:${CLIENT_PORT}

@@ -34,4 +34,9 @@ export class CustomerController {
   async delete(@Param('id') id: string) {
     return await this.customerService.delete(id);
   }
+
+  @Delete()
+  async clear() {
+    return await this.customerService.clear();
+  }
 }
