@@ -18,48 +18,48 @@ const ApiService = {
     });
   },
 
-  // post(resource: string, data: any, headers?: any) {
-  //   return new Promise((resolve, reject) => {
-  //     axios
-  //       .post(resource, data, { headers })
-  //       .then(function (response) {
-  //         resolve(response);
-  //       })
-  //       .catch(function (error) {
-  //         if (error && error.response && error.response.data) {
-  //           reject(error.response.data.message);
-  //         } else {
-  //           reject(error);
-  //         }
-  //       });
-  //   });
-  // },
+  post(resource: string, data: any, headers?: any) {
+    return new Promise((resolve, reject) => {
+      axios
+        .post(resource, data, { headers })
+        .then(function (response) {
+          resolve(response);
+        })
+        .catch(function (error) {
+          if (error && error.response && error.response.data) {
+            reject(error.response.data.message);
+          } else {
+            reject(error);
+          }
+        });
+    });
+  },
 
-  // put(resource: string, data: any) {
-  //   return new Promise((resolve, reject) => {
-  //     axios
-  //       .put(resource, data)
-  //       .then(function (response) {
-  //         resolve(response);
-  //       })
-  //       .catch(function (error) {
-  //         reject(error.response.data.message);
-  //       });
-  //   });
-  // },
+  put(resource: string, data: any) {
+    return new Promise((resolve, reject) => {
+      axios
+        .put(resource, data)
+        .then(function (response) {
+          resolve(response);
+        })
+        .catch(function (error) {
+          reject(error.response.data.message);
+        });
+    });
+  },
 
-  // delete(resource: string) {
-  //   return new Promise((resolve, reject) => {
-  //     axios
-  //       .delete(resource)
-  //       .then(function (response) {
-  //         resolve(response);
-  //       })
-  //       .catch(function (error) {
-  //         reject(error.response.data.message);
-  //       });
-  //   });
-  // },
+  delete(resource: string) {
+    return new Promise((resolve, reject) => {
+      axios
+        .delete(resource)
+        .then(function (response) {
+          resolve(response);
+        })
+        .catch(function (error) {
+          reject(error.response.data.message);
+        });
+    });
+  },
 };
 
 export default ApiService;
